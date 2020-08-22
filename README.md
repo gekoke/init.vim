@@ -1,2 +1,2 @@
 # init.vim
-Neovim settings, to be place in ~/.config/nvim/
+Neovim settings, to be placed in ~/.config/nvim/
