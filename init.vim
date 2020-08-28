@@ -28,7 +28,7 @@ set undofile
 set incsearch
 set termguicolors
 set scrolloff=8
-set showmode
+set noshowmode
 set shortmess=I
 
 call plug#begin('~/.vim/plugged')
@@ -39,11 +39,12 @@ Plug 'vim-utils/vim-man'
 Plug 'mbbill/undotree'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'gruvbox-community/gruvbox'
+Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'vim-airline/vim-airline'
 
 call plug#end()
 
-colorscheme gruvbox
+colorscheme dracula
 
 " Make jj switch from insert mode to normal mode
 inoremap jj <esc>
