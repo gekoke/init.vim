@@ -10,6 +10,7 @@ endif
 
 syntax on
 
+set clipboard+=unnamedplus
 set relativenumber
 set nohlsearch
 set hidden
@@ -59,4 +60,6 @@ nnoremap <C-c> <silent> <C-c>
 nnoremap <silent> <leader>f :FZF<cr>
 nnoremap <silent> <leader>F :FZF ~<cr>
 
-
+" Run python code in same buffer with a single keystroke
+autocmd FileType python map <buffer> <F9> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
+autocmd FileType python imap <buffer> <F9> <esc>:w<CR>:exec '!python3' shellescape(@%, 1)<CR>
