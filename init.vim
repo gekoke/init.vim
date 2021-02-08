@@ -32,20 +32,25 @@ set scrolloff=8
 set noshowmode
 set shortmess=I
 
-call plug#begin('~/.vim/plugged')
+call plug#begin("~/.config/nvim/autoload")
 
+Plug 'easymotion/vim-easymotion' 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-fugitive'
 Plug 'vim-utils/vim-man'
 Plug 'mbbill/undotree'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
+" Markdown plugin
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
 
 call plug#end()
 
-colorscheme dracula
+colorscheme gruvbox
+:hi Normal guibg=NONE ctermbg=NONE
 
 " Make jj switch from insert mode to normal mode
 inoremap jj <esc>
@@ -56,9 +61,13 @@ map <leader>rc :e $MYVIMRC<cr>
 " Disable an annoying message
 nnoremap <C-c> <silent> <C-c>
 
+
 " fzf hotkeys
-nnoremap <silent> <leader>f :FZF<cr>
-nnoremap <silent> <leader>F :FZF ~<cr>
+
+
+" Easymotion hotkeys
+map <Leader> <Plug>(easymotion-prefix)
+
 
 " Run python code in same buffer with a single keystroke
 autocmd FileType python map <buffer> <F9> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
